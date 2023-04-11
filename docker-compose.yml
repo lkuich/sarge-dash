@@ -1,0 +1,32 @@
+version: '3.6'
+services:
+  client:
+    build:
+      context: client/.
+      dockerfile: Dockerfile-dev
+    depends_on:
+      - api
+    env_file:
+      - client/.env.local
+    volumes:
+      - ./client/.:/opt/client
+      - /opt/client/node_modules
+    stdin_open: true
+    image: "sarge_dash_client:latest"
+  
+  api:
+    build:
+      context: api/.
+      dockerfile: Dockerfile-dev
+    env_file:
+      - api/.env
+    volumes:
+      - ./api/.:/opt/api
+      - /opt/api/node_modules
+    ports:
+      - '9229:9229'
+    image: "sarge_dash_api:latest"
+    restart: always
+
+volumes:
+  db_data:
