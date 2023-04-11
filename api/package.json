@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "node src/index.js",
-    "watch": "nodemon --inspect=0.0.0.0:9229 index.js"
+    "watch": "nodemon --inspect=0.0.0.0:9229 src/index.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"

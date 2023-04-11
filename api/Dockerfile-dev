@@ -1,10 +1,10 @@
 FROM node:16.14.2-alpine
 
-WORKDIR /opt/client
+WORKDIR /opt/api
 COPY ./package.json ./yarn.lock ./
 RUN yarn install
 
-COPY . /opt/client
+COPY . /opt/api
 
-EXPOSE 3000
+# EXPOSE 3000
 CMD ["yarn", "dev"]
